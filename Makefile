@@ -2,7 +2,7 @@
 CLIENT_NAME	= client
 SERVER_NAME	= server
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -Iincludes
 RM			= rm -f
 
 # FOLDERS
@@ -11,7 +11,7 @@ OBJ_DIR		= obj
 INC_DIR		= includes
 
 # SOURCES
-CLIENT_SRC	= $(SRC_DIR)/client.c $(SRC_DIR)/utils.c
+CLIENT_SRC	= $(SRC_DIR)/client.c $(SRC_DIR)/c_utils.c
 SERVER_SRC	= $(SRC_DIR)/server.c $(SRC_DIR)/s_utils.c
 
 # OBJECTS
