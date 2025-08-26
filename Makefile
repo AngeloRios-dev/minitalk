@@ -11,8 +11,8 @@ OBJ_DIR		= obj
 INC_DIR		= includes
 
 # SOURCES
-CLIENT_SRC	= $(SRC_DIR)/client.c
-SERVER_SRC	= $(SRC_DIR)/server.c
+CLIENT_SRC	= $(SRC_DIR)/client.c $(SRC_DIR)/utils.c
+SERVER_SRC	= $(SRC_DIR)/server.c $(SRC_DIR)/utils.c
 
 # OBJECTS
 CLIENT_OBJ	= $(CLIENT_SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
