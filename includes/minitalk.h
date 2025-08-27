@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 18:14:18 by angrios           #+#    #+#             */
-/*   Updated: 2025/08/26 17:52:41 by angrios          ###   ########.fr       */
+/*   Updated: 2025/08/27 12:42:47 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 int		ft_atoi(const char *nptr);
 
