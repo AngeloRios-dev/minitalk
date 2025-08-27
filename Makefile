@@ -13,8 +13,8 @@ LIBFT_DIR   = includes/libft
 LIBFT       = $(LIBFT_DIR)/libft.a
 
 # SOURCES
-CLIENT_SRC	= $(SRC_DIR)/client.c $(SRC_DIR)/utils.c
-SERVER_SRC	= $(SRC_DIR)/server.c $(SRC_DIR)/utils.c
+CLIENT_SRC	= $(SRC_DIR)/client.c
+SERVER_SRC	= $(SRC_DIR)/server.c
 
 # OBJECTS
 CLIENT_OBJ	= $(CLIENT_SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

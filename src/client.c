@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 19:08:58 by angrios           #+#    #+#             */
-/*   Updated: 2025/08/26 17:32:04 by angrios          ###   ########.fr       */
+/*   Updated: 2025/08/27 13:42:20 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	send_signal(int server_pid, int signal)
 		kill(server_pid, SIGUSR1);
 	else if (signal == 2)
 		kill(server_pid, SIGUSR2);
-	
 	return (0);
 }
 
