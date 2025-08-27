@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 19:06:42 by angrios           #+#    #+#             */
-/*   Updated: 2025/08/27 17:32:29 by angrios          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:58:22 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	g_char = 0;
 int		g_bit_counter = 0;
-
 void	signal_handler(int signal)
 {
 	if (signal == SIGUSR1)
