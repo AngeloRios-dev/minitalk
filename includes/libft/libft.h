@@ -6,12 +6,13 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 22:10:42 by mochi             #+#    #+#             */
-/*   Updated: 2025/08/27 12:58:38 by angrios          ###   ########.fr       */
+/*   Updated: 2025/08/28 20:17:13 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define _XOPEN_SOURCE 700
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
