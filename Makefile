@@ -2,15 +2,13 @@
 CLIENT_NAME	= client
 SERVER_NAME	= server
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror -Iincludes -I$(INC_DIR)/libft
+CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 
 # FOLDERS
 SRC_DIR		= src
 OBJ_DIR		= obj
-INC_DIR		= includes
-LIBFT_DIR   = includes/libft
-LIBFT       = $(LIBFT_DIR)/libft.a
+LIBFT       = ./libft/libft.a
 
 # SOURCES
 CLIENT_SRC	= $(SRC_DIR)/client.c
@@ -22,33 +20,33 @@ SERVER_OBJ	= $(SERVER_SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(LIBFT) $(SERVER_NAME) $(CLIENT_NAME)
 
-$(CLIENT_NAME): $(LIBFT) $(CLIENT_OBJ)
-	@echo "🔨 Linking $(CLIENT_NAME)"
-	$(CC) $(CFLAGS) $(CLIENT_OBJ) -L$(LIBFT_DIR) -lft -o $(CLIENT_NAME)
+$(LIBFT):
+	@$(MAKE) -C libft
 
-$(SERVER_NAME): $(LIBFT) $(SERVER_OBJ)
+$(CLIENT_NAME): $(CLIENT_OBJ)
+	@echo "🔨 Linking $(CLIENT_NAME)"
+	$(CC) $(CFLAGS) $(CLIENT_OBJ) $(LIBFT) -o $(CLIENT_NAME)
+
+$(SERVER_NAME): $(SERVER_OBJ)
 	@echo "🔨 Linking $(SERVER_NAME)"
-	@$(CC) $(CFLAGS) $(SERVER_OBJ) -L$(LIBFT_DIR) -lft -o $(SERVER_NAME)
+	@$(CC) $(CFLAGS) $(SERVER_OBJ) $(LIBFT) -o $(SERVER_NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@echo "⚙️  Compiling $<"
-	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+	@$(CC) $(CFLAGS) -I ./libft -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
-
 clean:
 	@echo "🗑️  Deleting object files..."
 	@$(RM) -r $(OBJ_DIR)
-	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -C libft clean
 
 fclean: clean
 	@echo "🗑️  Deleting executables..."
 	@$(RM) $(CLIENT_NAME) $(SERVER_NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C libft fclean
 
 re: fclean all
 
