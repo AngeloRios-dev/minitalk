@@ -42,12 +42,10 @@ $(LIBFT):
 	@$(MAKE) -C libft --no-print-directory
 
 $(CLIENT_NAME): $(CLIENT_OBJ)
-# 	@echo "🔨 Linking $(CLIENT_NAME)"
 	$(call LOADING_BAR_COMP)
 	@$(CC) $(CFLAGS) $(CLIENT_OBJ) $(LIBFT) -o $(CLIENT_NAME)
 
 $(SERVER_NAME): $(SERVER_OBJ)
-# 	@echo "🔨 Linking $(SERVER_NAME)"
 	$(call LOADING_BAR_COMP)
 	@$(CC) $(CFLAGS) $(SERVER_OBJ) $(LIBFT) -o $(SERVER_NAME)
 
@@ -59,13 +57,11 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 clean:
-# 	@echo "🗑️  Deleting object files..."
 	$(call CLEAN_MINITALK)
 	@$(RM) -r $(OBJ_DIR)
 	@$(MAKE) -C libft clean --no-print-directory
 
 fclean: clean
-# 	@echo "🗑️  Deleting executables..."
 	@$(RM) $(CLIENT_NAME) $(SERVER_NAME)
 	@$(MAKE) -C libft fclean --no-print-directory
 
