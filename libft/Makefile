@@ -1,7 +1,7 @@
-NAME = libft.a
-CC = gcc
-AR = ar rcs
-CFLAGS = -Wall -Wextra -Werror
+NAME 	= libft.a
+CC 		= gcc
+AR 		= ar rcs
+CFLAGS	= -Wall -Wextra -Werror
 
 SRC = ft_isalpha.c \
 	ft_isdigit.c \
