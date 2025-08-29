@@ -3,6 +3,24 @@ CC 		= gcc
 AR 		= ar rcs
 CFLAGS	= -Wall -Wextra -Werror
 
+define LOADING_BAR_COMP
+	@printf "\033[0;32mCompiling LIBFT: ["
+	@for i in `seq 1 20`; do \
+		printf "█"; \
+		sleep 0.02; \
+	done; \
+	printf "] ✔️\033[0m\n\n"
+endef
+
+define LOADING_BAR_CLEAN
+    @printf "\033[0;31mCleaning LIBFT: ["
+    @for i in `seq 1 20`; do \
+        printf "█"; \
+        sleep 0.02; \
+    done; \
+    printf "] ✔️\033[0m\n\n"
+endef
+
 SRC = ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
@@ -46,9 +64,14 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
+	$(call LOADING_BAR_COMP)
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)
+	$(call LOADING_BAR_CLEAN)
 
 fclean: clean 
 	 @rm -f $(NAME)

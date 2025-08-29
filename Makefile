@@ -5,6 +5,24 @@ CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 
+define LOADING_BAR_COMP
+	@printf "\033[0;32mProgress: ["
+	@for i in `seq 1 20`; do \
+		printf "█"; \
+		sleep 0.02; \
+	done; \
+	printf "] ✔️\033[0m\n\n"
+endef
+
+define CLEAN_MINITALK
+    @printf "\033[0;31mCleaning Minitalk: ["
+    @for i in `seq 1 20`; do \
+        printf "█"; \
+        sleep 0.02; \
+    done; \
+    printf "] ✔️\033[0m\n\n"
+endef
+
 # FOLDERS
 SRC_DIR		= src
 OBJ_DIR		= obj
@@ -24,11 +42,13 @@ $(LIBFT):
 	@$(MAKE) -C libft --no-print-directory
 
 $(CLIENT_NAME): $(CLIENT_OBJ)
-	@echo "🔨 Linking $(CLIENT_NAME)"
-	$(CC) $(CFLAGS) $(CLIENT_OBJ) $(LIBFT) -o $(CLIENT_NAME)
+# 	@echo "🔨 Linking $(CLIENT_NAME)"
+	$(call LOADING_BAR_COMP)
+	@$(CC) $(CFLAGS) $(CLIENT_OBJ) $(LIBFT) -o $(CLIENT_NAME)
 
 $(SERVER_NAME): $(SERVER_OBJ)
-	@echo "🔨 Linking $(SERVER_NAME)"
+# 	@echo "🔨 Linking $(SERVER_NAME)"
+	$(call LOADING_BAR_COMP)
 	@$(CC) $(CFLAGS) $(SERVER_OBJ) $(LIBFT) -o $(SERVER_NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
@@ -39,12 +59,13 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 clean:
-	@echo "🗑️  Deleting object files..."
+# 	@echo "🗑️  Deleting object files..."
+	$(call CLEAN_MINITALK)
 	@$(RM) -r $(OBJ_DIR)
 	@$(MAKE) -C libft clean --no-print-directory
 
 fclean: clean
-	@echo "🗑️  Deleting executables..."
+# 	@echo "🗑️  Deleting executables..."
 	@$(RM) $(CLIENT_NAME) $(SERVER_NAME)
 	@$(MAKE) -C libft fclean --no-print-directory
 
