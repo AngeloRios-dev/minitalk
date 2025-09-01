@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 19:08:58 by angrios           #+#    #+#             */
-/*   Updated: 2025/08/29 20:19:17 by angrios          ###   ########.fr       */
+/*   Updated: 2025/09/01 18:19:09 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	ft_usleep(int microseconds)
 {
-	struct timespec ts;
+	struct timespec	ts;
 
 	ts.tv_sec = microseconds / 1000000;
 	ts.tv_nsec = (microseconds % 1000000) * 1000;
@@ -40,7 +40,7 @@ static void	send_bit(int server_pid, int bit)
 			exit(EXIT_FAILURE);
 		}
 	}
-	ft_usleep(500);
+	ft_usleep(1000);
 }
 
 static void	process_char(int server_pid, char chr)
@@ -55,7 +55,7 @@ static void	process_char(int server_pid, char chr)
 	}
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	int		i;
 	char	*msg;
