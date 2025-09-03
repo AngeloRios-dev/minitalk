@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 19:06:42 by angrios           #+#    #+#             */
-/*   Updated: 2025/09/01 18:21:53 by angrios          ###   ########.fr       */
+/*   Updated: 2025/09/03 11:28:38 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	signal_handler(int signal, siginfo_t *info, void *contex)
 
 	(void)contex;
 	if (signal == SIGUSR2)
-		current_char |= (1 << bit_counter);
+		current_char = current_char | (1 << bit_counter);
 	bit_counter++;
 	if (bit_counter == 8)
 	{
